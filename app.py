@@ -12,8 +12,6 @@ from crypt import methods
 from webbrowser import get
 from flask import Flask, jsonify
 from flask import request
-
-
 from flask import *
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
