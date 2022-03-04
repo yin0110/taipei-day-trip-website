@@ -56,4 +56,5 @@ with open("data.json", mode="w", encoding="utf-8") as jsonList:
             data, indent=4, ensure_ascii=False, separators=(',', ': ')) + (",") + '\n')
         cur.execute(
             "LOAD DATA INFILE 'data.json' INTO TABLE `spots` FIELDS TERMINATED BY ',';")
+        mydb.commit()
         cur.close()
