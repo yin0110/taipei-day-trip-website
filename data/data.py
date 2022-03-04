@@ -5,20 +5,20 @@ from flask import Flask, jsonify
 import yaml
 import mysql.connector
 
-db = yaml.safe_load(open('secret.yaml'))
-mydb = mysql.connector.connect(
-    host=db["host"],
-    user=db["user"],
-    password=db["password"],
-    database=db["db"]
-)
+# db = yaml.safe_load(open('secret.yaml'))
+# mydb = mysql.connector.connect(
+#     host=db["host"],
+#     user=db["user"],
+#     password=db["password"],
+#     database=db["db"]
+# )
 
-cur = mydb.cursor(dictionary=True)
+# cur = mydb.cursor(dictionary=True)
 
 
 # 讀取json檔案
 src = "tapei-attractions.json"
-path = "/Users/yin/Desktop/stage2/taipei-day-trip-website/data/taipei-attractions.json"
+path = "data/taipei-attractions.json"
 with open(path) as attractionsfile:
     lines = json.load(attractionsfile)
     clearInfo = lines["result"]["results"]
@@ -54,7 +54,7 @@ with open("data.json", mode="w", encoding="utf-8") as jsonList:
 # 把資料寫進json裡，之後直接開啟mysql，load進資料庫中
         jsonList.write(json.dumps(
             data, indent=4, ensure_ascii=False, separators=(',', ': ')) + (",") + '\n')
-        cur.execute(
-            "LOAD DATA INFILE 'data.json' INTO TABLE `spots` FIELDS TERMINATED BY ',';")
-        mydb.commit()
-        cur.close()
+        # cur.execute(
+        #     "LOAD DATA INFILE 'data.json' INTO TABLE `spots` FIELDS TERMINATED BY ',';")
+        # mydb.commit()
+        # cur.close()
