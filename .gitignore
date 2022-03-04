@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 secret.yaml
+.DS_Store
 # Distribution / packaging
 .Python
 build/
