@@ -264,7 +264,7 @@ function searchData(){
                     function endImg (entries, ob) {
                         entries.forEach(entry => {
                         if(entry.isIntersecting){
-                            if(currentPage !== null && currentPage!==undefined){
+                            if(currentPage !== "null"){
                             fetch(`/api/attraction?page=${currentPage}&keyword=${val}`)
                             .then(res => {return res.json();
                             }).then(result=> {
