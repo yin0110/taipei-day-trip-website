@@ -1,4 +1,5 @@
-let nextPage=0;
+let currentPage=0;
+// let nextPage=0;
 let main=document.createElement("main");
 document.body.appendChild(main);
 // let divOuter= document.createElement("div");
@@ -13,7 +14,7 @@ async function getdata(){
     divOuter.id="siteOuter";
     divOuter.className="siteOuter";
     main.appendChild(divOuter);
-    let dataAPI= await fetch(`/api/attraction?page=${nextPage}`);
+    let dataAPI= await fetch(`/api/attraction?page=${currentPage}`);
     let dataJson= await dataAPI.json();
     //拿出dataAPI字典，以便後面拿取不同資訊資料
     let dataInfo= dataJson.data;
@@ -96,10 +97,10 @@ buildelement();
     function endImg (entries, ob) {
         entries.forEach(entry => {
           if(entry.isIntersecting){
-            if(nextPage < 4){
-                nextPage += 1;
+            if(currentPage < 4){
+                currentPage += 1;
             // else{nextPage = "null" }
-            fetch(`/api/attraction?page=${nextPage}`)
+            fetch(`/api/attraction?page=${currentPage}`)
             .then(res => {return res.json();
             }).then(result=> {
                 let dataInfo= result.data;
@@ -161,7 +162,7 @@ buildelement();
                     }
             });
         }
-        else{nextPage = "null";
+        else{currentPage = "null";
             ob.unobserve(target);        
     }
 
@@ -180,8 +181,8 @@ function searchData(){
     divOuter.id="siteOuter";
     divOuter.className="siteOuter";
     main.appendChild(divOuter);
-    let nextPage=0;
-        fetch(`/api/attraction?page=${nextPage}&keyword=${val}`)
+    let currentPage=0;
+        fetch(`/api/attraction?page=${currentPage}&keyword=${val}`)
             .then(res => {return res.json();
             }).then(result=> {
                 if(result.error){
@@ -190,6 +191,7 @@ function searchData(){
                 }
                 else{
                 let dataInfo= result.data;
+                currentPage=result.nextPage
                 let img=[];
                 let siteName=[];
                 let category=[];
@@ -246,107 +248,95 @@ function searchData(){
                     perSite="null";
                     }
                     }
-                } 
-            ;})
-    let divNew= document.createElement("p");
-    document.body.appendChild(divNew);
-    divNew.className="divNew";
-    let options={
-        root:null,
-        // document.querySelector(".siteOuter"),
-        rootmargin:"-5px",
-        threshold: 0.05
-        }
-    const observer = new IntersectionObserver(endImg, options);
-    const target = document.querySelector('.divNew');
-    // const img=document.querySelector('.siteinner');
-    observer.observe(target);
+                    let divNew= document.createElement("p");
+                    document.body.appendChild(divNew);
+                    divNew.className="divNew";
+                    let options={
+                        root:null,
+                        // document.querySelector(".siteOuter"),
+                        rootmargin:"-5px",
+                        threshold: 0.05
+                        }
+                    const observer = new IntersectionObserver(endImg, options);
+                    const target = document.querySelector('.divNew');
+                    // const img=document.querySelector('.siteinner');
+                    observer.observe(target);
+                    function endImg (entries, ob) {
+                        entries.forEach(entry => {
+                        if(entry.isIntersecting && currentPage !== null){
+                            if(currentPage !== null){
+                            fetch(`/api/attraction?page=${currentPage}&keyword=${val}`)
+                            .then(res => {return res.json();
+                            }).then(result=> {
+                                currentPage= result.nextPage;
+                                let dataInfo= result.data;
+                                let img=[];
+                                let siteName=[];
+                                let category=[];
+                                let mrt= [];
+                                for(data in dataInfo){
+                                    let allImg=dataInfo[data].images[0];
+                                    // 抓到每個id的第一張圖片
+                                    img.push(allImg);
+                                    //抓到每個景點名稱
+                                    let allName=dataInfo[data].name;
+                                    siteName.push(allName);
+                                    let allCategory=dataInfo[data].category;
+                                    category.push(allCategory);
+                                    let allMRT=dataInfo[data].mrt;
+                                    mrt.push(allMRT);
+                                }
+                                for(let item=0; item<12; item++){
+                                    //抓取每個點的info
+                                    let perSite=siteName[item];
+                                    let perCategory=category[item];
+                                    let perMRT= mrt[item];
+                                    //設定最外層divOuter
+                                    if (perSite !== undefined){
+                                    let divInner= document.createElement("div");
+                                    divInner.className="siteInner";
+                            
+                                    //生成img跟p Element
+                                    let imgBox=document.createElement("img");
+                                    imgBox.className="siteImg"
+                                    let nameBox=document.createElement("div");
+                                    nameBox.className="siteName"
+                                    let categoryBox=document.createElement("div");
+                                    categoryBox.className="siteCategory"
+                                    let mrtBox=document.createElement("div");
+                                    mrtBox.className="siteMRT"
+                                    //每個p放入將放入的文字
+                                    let siteText = document.createTextNode(perSite);
+                                    let categoryText = document.createTextNode(perCategory);
+                                    let mrtText= document.createTextNode(perMRT);
+                                    imgBox.src=img[item];
+                                    //放入html
+                                    // let divOuter=getElementById("siteOuter")
+                                    divOuter.appendChild(divInner);
+                                    divInner.appendChild(imgBox);
+                                    //sitename生成p element再放入文字
+                                    divInner.appendChild(nameBox);
+                                    nameBox.appendChild(siteText);
+                                    divInner.appendChild(mrtBox);
+                                    mrtBox.appendChild(mrtText);
+                                    divInner.appendChild(categoryBox);
+                                    categoryBox.appendChild(categoryText);
+                                }
+                                else{
+                                    perSite="null";
+                                    }
+                                    }
+                                                        
+                        });                      
+                        }
+                            else{
+                            ob.unobserve(target);
+                            }
+                        }
+                        })}
+                    
+                            ;} 
+    }) 
     
-    function endImg (entries, ob) {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            if(nextPage < 3){
-                nextPage += 1;
-            fetch(`/api/attraction?page=${nextPage}&keyword=${val}`)
-            .then(res => {return res.json();
-            }).then(result=> {
-                let page= result.nextPage;
-                console.log(page)
-                if (page!==false){
-                let dataInfo= result.data;
-                let img=[];
-                let siteName=[];
-                let category=[];
-                let mrt= [];
-                for(data in dataInfo){
-                    let allImg=dataInfo[data].images[0];
-                    // 抓到每個id的第一張圖片
-                    img.push(allImg);
-                    //抓到每個景點名稱
-                    let allName=dataInfo[data].name;
-                    siteName.push(allName);
-                    let allCategory=dataInfo[data].category;
-                    category.push(allCategory);
-                    let allMRT=dataInfo[data].mrt;
-                    mrt.push(allMRT);
-                }
-                for(let item=0; item<12; item++){
-                    //抓取每個點的info
-                    let perSite=siteName[item];
-                    let perCategory=category[item];
-                    let perMRT= mrt[item];
-                    //設定最外層divOuter
-                    if (perSite !== undefined){
-                    let divInner= document.createElement("div");
-                    divInner.className="siteInner";
-            
-                    //生成img跟p Element
-                    let imgBox=document.createElement("img");
-                    imgBox.className="siteImg"
-                    let nameBox=document.createElement("div");
-                    nameBox.className="siteName"
-                    let categoryBox=document.createElement("div");
-                    categoryBox.className="siteCategory"
-                    let mrtBox=document.createElement("div");
-                    mrtBox.className="siteMRT"
-                    //每個p放入將放入的文字
-                    let siteText = document.createTextNode(perSite);
-                    let categoryText = document.createTextNode(perCategory);
-                    let mrtText= document.createTextNode(perMRT);
-                    imgBox.src=img[item];
-                    //放入html
-                    // let divOuter=getElementById("siteOuter")
-                    divOuter.appendChild(divInner);
-                    divInner.appendChild(imgBox);
-                    //sitename生成p element再放入文字
-                    divInner.appendChild(nameBox);
-                    nameBox.appendChild(siteText);
-                    divInner.appendChild(mrtBox);
-                    mrtBox.appendChild(mrtText);
-                    divInner.appendChild(categoryBox);
-                    categoryBox.appendChild(categoryText);
-                }
-                else{
-                    perSite="null";
-                    }
-                    }
-           
-            }
-            else{
-                page="null";
-                ob.unobserve(target);
-            }
-        });
-
-         
-        }
-        else{nextPage = "null";
-        ob.unobserve(target);
-    }
-        }
-        })}
-    
-
-
 
 }
