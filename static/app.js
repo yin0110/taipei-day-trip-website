@@ -263,8 +263,8 @@ function searchData(){
                     observer.observe(target);
                     function endImg (entries, ob) {
                         entries.forEach(entry => {
-                        if(entry.isIntersecting && currentPage !== null){
-                            if(currentPage !== null){
+                        if(entry.isIntersecting){
+                            if(currentPage !== null && currentPage!==undefined){
                             fetch(`/api/attraction?page=${currentPage}&keyword=${val}`)
                             .then(res => {return res.json();
                             }).then(result=> {
