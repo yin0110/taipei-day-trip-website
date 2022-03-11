@@ -93,17 +93,16 @@ buildelement();
     const target = document.querySelector('.divNew');
     // const img=document.querySelector('.siteinner');
     observer.observe(target);
-    
+    currentPage=1;
     function endImg (entries, ob) {
         entries.forEach(entry => {
           if(entry.isIntersecting){
-            if(currentPage < 4){
-                currentPage += 1;
-            // else{nextPage = "null" }
+            if(currentPage !== "null"){
             fetch(`/api/attraction?page=${currentPage}`)
             .then(res => {return res.json();
             }).then(result=> {
                 let dataInfo= result.data;
+                currentPage=result.nextPage
                 let img=[];
                 let siteName=[];
                 let category=[];
