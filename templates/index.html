@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北一日遊</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
+</head>
+<body>
+    <nav>
+        <div class="desktop">
+            <div class="taipei">台北一日遊</div>
+            <div class="journey">
+                <a class="journeyA" href="">預定行程</a>
+                <a href="">註冊/</a>
+                <a href="">登入</a>
+            </div>
+        </div>   
+    </nav>
+    <div class="block"></div>
+    <header>
+        <div class="searchOuter">
+            <div class="searchsection">
+                <div class="searchsectionTitle1">輕鬆享受台北一日悠閒</div>
+                <div class="searchsectionTitle2">探索每個角落，體驗城市的深度旅遊行程</div>
+                <div class="searchbox">
+                    <input id="search" class="searchWord" type="text" placeholder="輸入景點名稱查詢">
+                    <button class="searchButton" onclick="searchData()"><img src="{{url_for('static', filename='/img/icon_search.png')}}" /></button>
+                </div>
+            </div>
+            <div><img class="building" src="{{url_for('static', filename='/img/welcome.png')}}"></div>
+        </div>
+    </header>
+
+    <script src="{{url_for('static', filename='/app.js')}}"></script>
+</body>
+</html>

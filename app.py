@@ -1,3 +1,4 @@
+from distutils.log import debug
 import string
 import numpy as np
 import math
@@ -10,25 +11,25 @@ import yaml
 import ast
 from crypt import methods
 from webbrowser import get
-from flask import Flask, jsonify
+from flask import Flask, jsonify, url_for, redirect, session
 from flask import request
 from flask import *
-app = Flask(__name__)
+import mysql.connector.pooling
+
+app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # 避免自動排序
 app.config['JSON_SORT_KEYS'] = False
-
 # 資料庫建立
 db = yaml.safe_load(open('secret.yaml'))
-mydb = mysql.connector.connect(
-    host=db["host"],
-    user=db["user"],
-    password=db["password"],
-    database=db["db"]
-)
+pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
+                                                   pool_size=10,
+                                                   host=db["host"],
+                                                   user=db["user"],
+                                                   password=db["password"],
+                                                   database=db["db"])
 
-cur = mydb.cursor(dictionary=True)
 
 # Pages
 
@@ -55,6 +56,8 @@ def thankyou():
 
 @app.route('/api/attraction/<attractionId>', methods=["GET"])
 def spots(attractionId):
+    cnx = pool.get_connection()
+    cur = cnx.cursor(dictionary=True)
     attractionid = attractionId
     cur.execute(
         "SELECT images FROM spots WHERE id=%s", (attractionid,))
@@ -76,6 +79,8 @@ def spots(attractionId):
         data.headers.add("Access-Control-Allow-Origin", "*")
         # attractionInfo = json.dumps(
         #     {"data": attractionInfo}, ensure_ascii=False, indent=4)
+        cnx.close()
+        cur.close()
         return data
     else:
         data = {
@@ -104,6 +109,8 @@ def spotspage():
 
     if keyword:
         try:
+            cnx = pool.get_connection()
+            cur = cnx.cursor(dictionary=True)
             cur.execute("SELECT COUNT(*) FROM spots WHERE name Like %s", ("%{}%".format(
                         keyword),))
             dataQty = cur.fetchone()
@@ -130,6 +137,8 @@ def spotspage():
                     spot["images"] = imgLst
                     fullData.append(spot)
                     data = {"nextPage": next_page, "data": fullData}
+                cnx.close()
+                cur.close()
                 return data
             else:
                 data = {
@@ -145,11 +154,12 @@ def spotspage():
             return data, 500
     else:
         try:
+            cnx = pool.get_connection()
+            cur = cnx.cursor(dictionary=True)
             cur.execute("SELECT COUNT(*) FROM spots")
             dataQty = cur.fetchone()
             Qty = dataQty["COUNT(*)"]
             maxPage = math.ceil(Qty/perpage)
-            print(type(page))
             if page < maxPage:
                 startdata = page*perpage
                 next_page = page + 1
@@ -160,7 +170,7 @@ def spotspage():
                 cur.execute(
                     "SELECT * FROM spots limit %s, %s;", (startdata, perpage))
                 attractionInfo = cur.fetchall()
-                print(attractionInfo)
+                # print(attractionInfo)
                 fullData = []
                 for spot in attractionInfo:
                     imgStr = spot["images"]
@@ -170,6 +180,8 @@ def spotspage():
                     # fullDatalist = {"nextPage": next_page, "data": spot}
                     fullData.append(spot)
                     data = {"nextPage": next_page, "data": fullData}
+                cnx.close()
+                cur.close()
                 return data
             else:
                 data = {
@@ -185,4 +197,5 @@ def spotspage():
             return data, 500
 
 
+# app.run(port=3000, debug=True)
 app.run(host='0.0.0.0', port=3000)
