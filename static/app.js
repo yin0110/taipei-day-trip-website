@@ -2,10 +2,6 @@ let currentPage=0;
 // let nextPage=0;
 let main=document.createElement("main");
 document.body.appendChild(main);
-// let divOuter= document.createElement("div");
-// divOuter.id="siteOuter";
-// divOuter.className="siteOuter";
-// main.appendChild(divOuter);
 main.id="main";
 
 
