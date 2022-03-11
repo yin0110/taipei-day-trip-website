@@ -23,14 +23,6 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['JSON_SORT_KEYS'] = False
 # 資料庫建立
 db = yaml.safe_load(open('secret.yaml'))
-# mydb = mysql.connector.connect(
-#     host=db["host"],
-#     user=db["user"],
-#     password=db["password"],
-#     database=db["db"]
-# )
-# app.secret_key = db["secretkey"]
-# cur = mydb.cursor(dictionary=True)
 pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
                                                    pool_size=10,
                                                    host=db["host"],
