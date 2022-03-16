@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北一日遊</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/attraction.css')}}">
+</head>
+<body>
+    <nav>
+        <div class="desktop">
+            <div class="desktop__taipei" onclick="home()">台北一日遊</div>
+            <div class="desktop__journey">
+                <a class="desktop__journey--left" href="">預定行程</a>
+                <a href="">註冊/</a>
+                <a href="">登入</a>
+            </div>
+        </div>   
+    </nav>
+    <div class="block"></div>
+    <main>
+        <div class="sectionMain">
+            <div class="sectionMain__img">
+                <img class="img--pic" src="">
+                <div class="img--left"><img  class="left" src="{{url_for('static', filename='/img/btn_leftArrow.png')}}" onclick="turn(this.className)"></div>
+                <div class="img--right"><img class="right" src="{{url_for('static', filename='/img/btn_rightArrow.png')}}" onclick="turn(this.className)"></div>
+                <ul id="cir">
+                </ul>
+            </div>
+            <div class="sectionMain__content">
+                <div class="content__name"></div>
+                <div class="content__place"></div>
+                <div class="content__journey">
+                    <div class="content__journey--title">訂購導覽行程</div>
+                    <div class="content__journey--description">以此景點為中心的一日行程，帶您探索城市角落故事</div>
+                    <div class="content__journey--date">
+                        <label for="date">選擇日期：</label>
+                        <input class="date--input" type="date" id="date" name="date">
+                    </div>
+                    <div class="content__journey--time">選擇時間：
+                        <input  type="radio" id="time1" name="time" value="新台幣 2000 元" onclick="chosenTime(this.value)" checked> 
+                        <label class="time--lable" for="time1">上半天</label>
+                        <input  type="radio" id="time2" name="time" value="新台幣 2500 元" onclick="chosenTime(this.value)">
+                        <label class="time--lable" for="time2">下半天</label>
+                    </div>
+                    <div class="content__journey--cost">導覽費用：
+                        <div class="cost--fee">新台幣 2000 元</div>
+                    </div>
+                    <div class="content__journey--button">開始預定行程</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <article>
+        <div class="horizon"></div>
+        <div class="section2">
+            <div class="section2--description"></div>
+            <div class="section2--site">景點地址：</div>
+            <div class="section2--address"></div>
+            <div class="section2--transportation">交通方式：</div>
+            <div class="section2--way"></div>
+        </div>
+    </article>
+    <script src="{{url_for('static', filename='/javascript/attraction.js')}}"></script>
+    <footer>
+        <p>COPYRIGHT © 2021 台北一日遊</p>
+    </footer>
+</body>
+</html>

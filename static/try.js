@@ -103,7 +103,7 @@ function getdata(){
 
 getdata()
 
-function searchData(){ 
+async function searchData(){ 
     let val = document.getElementById('search').value;
     let main = document.getElementById("main");
     main.innerHTML = '';
@@ -182,7 +182,7 @@ function searchData(){
                 }
                 
             }
-            getKeyword();
+            await getKeyword();
             page=1
             let divNew= document.createElement("p");
             document.body.appendChild(divNew);
@@ -201,7 +201,7 @@ function searchData(){
                 entries.forEach(entry => {
                 if(entry.isIntersecting){
                     if(page !== "null"){
-                        getKeyword();    
+                    getKeyword();    
                 }
                     else{
                     ob.unobserve(target);

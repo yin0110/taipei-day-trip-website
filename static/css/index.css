@@ -104,6 +104,7 @@ header {
   height: 46px;
   border: 0 none;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 
 /* 生成的html element設定 */
@@ -129,6 +130,7 @@ main {
   grid-auto-rows: 1fr 1fr 1fr;
   align-items: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 .siteImg {
   width: 100%;
@@ -177,10 +179,10 @@ footer {
   font-weight: bold;
   text-align: center;
   background: #757575;
+  color: #ffffff;
   font-family: "Noto Sans TC";
-  line-height: 60px;
-  /* position: absolute;
-  bottom: 0; */
+  line-height: 104px;
+  height: 104px;
 }
 
 @media (max-width: 1200px) {

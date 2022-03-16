@@ -68,6 +68,26 @@ function searchData(){
                     mrtBox.appendChild(mrtText);
                     divInner.appendChild(categoryBox);
                     categoryBox.appendChild(categoryText);
+                    // 建立每個景點id
+                    let siteId = document.getElementsByClassName("siteInner");
+                    for (var i = 0; i < siteId.length; i++) {
+                        siteId[i].id = "id" + (i + 1);
+                        }   
+                    //拿到每個景點id
+                    divInner.addEventListener('click', loadAttraction)
+                    function loadAttraction(event) {
+                        //取得景點名稱
+                        let chosenSite = document.getElementById(this.id).childNodes[1].textContent
+                        fetch(`/api/attraction?page=0&keyword=${chosenSite}`)
+                        .then(res => {return res.json();
+                        }).then(result=> {
+                            let dataInfo= result.data;
+                            mysiteId= dataInfo[0].id
+                            // 進到attraction id 頁面
+                            location.href = `/attraction/${mysiteId}`;
+                            });
+                        
+                    }
                 }
                 else{
                     perSite="null";
@@ -146,6 +166,26 @@ function searchData(){
                                     mrtBox.appendChild(mrtText);
                                     divInner.appendChild(categoryBox);
                                     categoryBox.appendChild(categoryText);
+                                    // 建立每個景點id
+                                    let siteId = document.getElementsByClassName("siteInner");
+                                    for (var i = 0; i < siteId.length; i++) {
+                                        siteId[i].id = "id" + (i + 1);
+                                    }   
+                                    //拿到每個景點id
+                                    divInner.addEventListener('click', loadAttraction)
+                                    function loadAttraction(event) {
+                                        //取得景點名稱
+                                        let chosenSite = document.getElementById(this.id).childNodes[1].textContent
+                                        fetch(`/api/attraction?page=0&keyword=${chosenSite}`)
+                                        .then(res => {return res.json();
+                                        }).then(result=> {
+                                            let dataInfo= result.data;
+                                            mysiteId= dataInfo[0].id
+                                            // 進到attraction id 頁面
+                                            location.href = `/attraction/${mysiteId}`;
+                                            });
+                        
+                    }
                                 }
                                 else{
                                     perSite="null";
@@ -154,7 +194,7 @@ function searchData(){
                                                         
                         });                      
                         }
-                            else{
+                        else{
                             ob.unobserve(target);
                             }
                         }
