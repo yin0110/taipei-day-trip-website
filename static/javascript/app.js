@@ -5,6 +5,7 @@ main.id="main";
 let mysiteId=0;
 
 function getdata(){
+    currentPage=0;
     let divOuter= document.createElement("div");
     divOuter.id="siteOuter";
     divOuter.className="siteOuter";

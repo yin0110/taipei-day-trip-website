@@ -16,6 +16,7 @@ nav {
   height: 54px;
   display: grid;
   justify-content: center;
+  z-index: 3;
 }
 
 .desktop {
