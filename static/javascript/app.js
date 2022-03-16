@@ -95,7 +95,7 @@ function getdata(){
                 }
         }}
     apiFetch()
-    // currentPage=1
+    currentPage=1
     let divNew= document.createElement("p");
     document.body.appendChild(divNew);
     divNew.className="divNew";
