@@ -95,7 +95,6 @@ function getdata(){
                 }
         }}
     apiFetch()
-    currentPage=1
     let divNew= document.createElement("p");
     document.body.appendChild(divNew);
     divNew.className="divNew";
@@ -108,7 +107,7 @@ function getdata(){
     const target = document.querySelector('.divNew');
         // const img=document.querySelector('.siteinner');
     observer.observe(target);
-        // currentPage=1;
+        currentPage=1;
     function endImg (entries, ob) {
         entries.forEach(entry => {
         if(entry.isIntersecting){
