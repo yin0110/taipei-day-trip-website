@@ -90,6 +90,8 @@ def spots(attractionId):
         data = jsonify(data)
         data.headers.add("Content-Type", "application/json")
         data.headers.add("Access-Control-Allow-Origin", "*")
+        cnx.close()
+        cur.close()
         return data, 400
 
 
@@ -145,6 +147,8 @@ def spotspage():
                     "error": True,
                     "message": "無此頁面"
                 }
+                cnx.close()
+                cur.close()
                 return data, 400
         except:
             data = {
@@ -188,12 +192,16 @@ def spotspage():
                     "error": True,
                     "message": "無此頁面"
                 }
+                cnx.close()
+                cur.close()
                 return data, 400
         except:
             data = {
                 "error": True,
                 "message": "內部問題"
             }
+            cnx.close()
+            cur.close()
             return data, 500
 
 
