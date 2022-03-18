@@ -107,7 +107,6 @@ function getdata(){
     const target = document.querySelector('.divNew');
         // const img=document.querySelector('.siteinner');
     observer.observe(target);
-        currentPage=1;
     function endImg (entries, ob) {
         entries.forEach(entry => {
         if(entry.isIntersecting){

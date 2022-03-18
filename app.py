@@ -77,8 +77,6 @@ def spots(attractionId):
         data = jsonify({"data": attractionInfo})
         data.headers.add("Content-Type", "application/json")
         data.headers.add("Access-Control-Allow-Origin", "*")
-        # attractionInfo = json.dumps(
-        #     {"data": attractionInfo}, ensure_ascii=False, indent=4)
         cnx.close()
         cur.close()
         return data
