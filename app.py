@@ -11,25 +11,18 @@ import yaml
 import ast
 from crypt import methods
 from webbrowser import get
-from flask import Flask, jsonify, url_for, redirect, session
+# from flask import Flask, jsonify, url_for, redirect, session, Blueprint
 from flask import request
 from flask import *
-import mysql.connector.pooling
+from database import pool
+from root import usrRoot
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # 避免自動排序
 app.config['JSON_SORT_KEYS'] = False
-# 資料庫建立
-db = yaml.safe_load(open('secret.yaml'))
-pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
-                                                   pool_size=10,
-                                                   host=db["host"],
-                                                   user=db["user"],
-                                                   password=db["password"],
-                                                   database=db["db"])
-
+app.register_blueprint(usrRoot)
 
 # Pages
 

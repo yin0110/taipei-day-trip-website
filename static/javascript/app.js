@@ -4,7 +4,7 @@ document.body.appendChild(main);
 main.id="main";
 let mysiteId=0;
 
-function getdata(){
+async function getdata(){
     currentPage=0;
     let divOuter= document.createElement("div");
     divOuter.id="siteOuter";
@@ -94,7 +94,7 @@ function getdata(){
                 perSite="null";
                 }
         }}
-    apiFetch()
+    await apiFetch()
     let divNew= document.createElement("p");
     document.body.appendChild(divNew);
     divNew.className="divNew";
@@ -107,11 +107,12 @@ function getdata(){
     const target = document.querySelector('.divNew');
         // const img=document.querySelector('.siteinner');
     observer.observe(target);
+    console.log(currentPage)
     function endImg (entries, ob) {
-        entries.forEach(entry => {
+        entries.forEach(async entry => {
         if(entry.isIntersecting){
             if(currentPage !== "null"){
-                apiFetch()
+                await apiFetch()
                 }
             else{currentPage = "null";
                 ob.unobserve(target);        
