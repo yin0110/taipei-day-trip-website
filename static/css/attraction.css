@@ -15,49 +15,8 @@ body {
 }
 /* navigation desktop */
 nav {
-  background-color: #ffffff;
-  width: 100%;
-  padding: 0 10px;
-  height: 54px;
-  display: grid;
-  justify-content: center;
-  position: fixed;
   border-bottom: 1px solid;
   border-bottom-color: #e8e8e8;
-  z-index: 2;
-}
-
-.desktop {
-  display: grid;
-  width: 1200px;
-  height: 54px;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-}
-/* 台北一日遊 */
-.desktop__taipei {
-  font-size: 30px;
-  color: #448899;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.desktop__journey {
-  color: #666666;
-  font-size: 16px;
-  text-align: right;
-  display: inline-block;
-}
-
-a {
-  text-decoration: none;
-  color: #666666;
-}
-.desktop__journey--left {
-  margin-right: 20px;
-}
-.block {
-  height: 54px;
 }
 
 /* 主要行程訂購 */
@@ -292,21 +251,6 @@ footer {
 }
 
 @media (max-width: 1200px) {
-  .desktop {
-    display: grid;
-    width: 100vw;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-  .desktop__taipei {
-    margin-left: 10px;
-    color: #448899;
-  }
-  .desktop__journey {
-    margin-right: 10px;
-    color: #666666;
-    font-size: 16px;
-  }
   .sectionMain {
     width: 100vw;
     margin-top: 50px;
@@ -372,21 +316,6 @@ footer {
 }
 
 @media (max-width: 484px) {
-  .desktop {
-    display: grid;
-    width: 100vw;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-  .desktop__taipei {
-    margin-left: 10px;
-    color: #448899;
-  }
-  .desktop__journey {
-    margin-right: 10px;
-    color: #666666;
-    font-size: 16px;
-  }
   .sectionMain {
     width: 100vw;
     margin-top: 50px;

@@ -14,8 +14,9 @@ from webbrowser import get
 # from flask import Flask, jsonify, url_for, redirect, session, Blueprint
 from flask import request
 from flask import *
-from database import pool
+from database import pool, db
 from root import usrRoot
+from memberAPI import test
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
@@ -23,7 +24,8 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # 避免自動排序
 app.config['JSON_SORT_KEYS'] = False
 app.register_blueprint(usrRoot)
-
+app.register_blueprint(test)
+app.secret_key = db["mysecret"]
 # Pages
 
 
@@ -122,6 +124,7 @@ def spotspage():
                 # limit %s, %s;", (startdata, perpage)
                 # WHERE name Like '%館%'
                 attractionInfo = cur.fetchall()
+
                 fullData = []
                 for spot in attractionInfo:
                     imgStr = spot["images"]
@@ -197,4 +200,4 @@ def spotspage():
 
 
 # app.run(port=3000, debug=True)
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=3000, debug=True)
