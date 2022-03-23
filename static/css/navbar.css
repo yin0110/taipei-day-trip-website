@@ -41,6 +41,7 @@ a {
 }
 .journey--login {
   cursor: pointer;
+  color: #ffffff;
   /* display: none; */
 }
 .journey--logout {

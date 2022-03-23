@@ -1,6 +1,5 @@
 let login=document.querySelector(".journey--login")
 let logout=document.querySelector(".journey--logout")
-
 async function checkLogin(){
     url= `/api/usr`
     accessMethod="GET"
@@ -15,6 +14,7 @@ async function checkLogin(){
     catch(error){
         login.style.display="inline-block";
         login.innerHTML="註冊/登入"
+        login.style.color="#666666"
         logout.style.display="none";
     }
 }

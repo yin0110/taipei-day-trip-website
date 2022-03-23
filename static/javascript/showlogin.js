@@ -58,12 +58,13 @@ function signinForm(){
 // //註冊帳號
 async function loginOrSignup(){
     buttonName=memberButton.innerHTML
-    if (buttonName=="註冊新帳戶"){  
+    if (buttonName=="註冊新帳戶"){
+        
         let myname=idName.value;
         let emailInfo=email.value;
         let passwordInfo=password.value;
-    let url= `/api/usr?name=${myname}&email=${emailInfo}&password=${passwordInfo}`;
-    let accessMethod="POST"
+        let url= `/api/usr?name=${myname}&email=${emailInfo}&password=${passwordInfo}`;
+        let accessMethod="POST"
         let fetchInfo= await fetch(url, {method:accessMethod});
         let statusCode= await fetchInfo.json();
     
@@ -71,13 +72,14 @@ async function loginOrSignup(){
             signInStatus.innerHTML="註冊成功，請重新登入"
             signInStatus.style.display="block"
             signIn.style.display="none";
-        }
+    }
         else{
+        
             signInStatus.innerHTML=statusCode["message"]
             signInStatus.style.display="block"
             signIn.style.display="none";
+        
         }
-    
     
     }
     else{
