@@ -20,9 +20,10 @@ function showFormSignin(){
     signUp.style.display="block";
     member.style.height="281.5px";
     email.style.marginTop="15px";
-    memberButton.innerHTML="登入帳戶"
-    signUp.style.marginBottom="15px"
-    background.style.display="block"
+    memberButton.innerHTML="登入帳戶";
+    signUp.style.marginBottom="15px";
+    background.style.display="block";
+    memberTitle.innerHTML="會員登入";
 }
 
 
