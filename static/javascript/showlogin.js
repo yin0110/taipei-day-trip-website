@@ -12,6 +12,7 @@ let aLogin= document.querySelector(".journey--login")
 aLogin.addEventListener('click', popupLogin);
 let aLogout= document.querySelector(".journey--logout")
 aLogout.addEventListener('click', logOut);
+let memberTitle= document.querySelector(".member--title")
 
 function showFormSignin(){
     idName.style.display="none";
@@ -30,6 +31,10 @@ function popupLogin(){
     // let member= document.querySelector("#member")
     member.style.display="flex";
     signInStatus.style.display="none"
+    memberTitle.innerHTML="會員登入";
+    idName.value="";
+    email.value="";
+    password.value="";
     showFormSignin();
 }
 //關掉表單
@@ -47,6 +52,8 @@ function signupForm(){
     email.style.marginTop="10px";
     signIn.style.marginBottom="15px"
     memberButton.innerHTML="註冊新帳戶";
+    memberTitle.innerHTML="註冊會員帳號";
+
     
 }
 
