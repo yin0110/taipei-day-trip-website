@@ -19,7 +19,6 @@ async function checkLogin(){
     }
 }
 
-
 async function logOut(){
     url= `/api/usr`
     accessMethod="DELETE"

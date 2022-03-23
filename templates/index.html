@@ -26,16 +26,6 @@
 </div>
 <body onload=checkLogin()>
     <div class="background"></div>
-    <nav>
-        <div class="desktop">
-            <div class="taipei">台北一日遊</div>
-            <div class="journey">
-                <a class="journey--book" href="">預定行程</a>
-                <a class="journey--login" onclick="popupLogin()">註冊/登入</a>
-                <a class="journey--logout" onclick="logOut()">登出系統</a>
-            </div>
-        </div>   
-    </nav>
     <div class="block"></div>
     <header>
         <div class="searchOuter">
@@ -50,6 +40,7 @@
             <div><img class="building" src="{{url_for('static', filename='/img/welcome.png')}}"></div>
         </div>
     </header>
+    <script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/app.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/searchdata.js')}}"></script>

@@ -5,9 +5,6 @@ let photo=null;
 let imgQty=null;
 let qty=0;
 
-function home(){
-    location.href = "/";
-}
 //小黑點移動位置
 function showPosition(){
     let siteImg= photo[qty]

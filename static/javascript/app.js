@@ -107,7 +107,6 @@ async function getdata(){
     const target = document.querySelector('.divNew');
         // const img=document.querySelector('.siteinner');
     observer.observe(target);
-    console.log(currentPage)
     function endImg (entries, ob) {
         entries.forEach(async entry => {
         if(entry.isIntersecting){

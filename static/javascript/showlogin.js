@@ -8,6 +8,10 @@ let signIn= document.querySelector(".member--signin")
 let signUp= document.querySelector(".member--signup")
 let memberButton= document.querySelector(".member--button")
 let signInStatus=document.querySelector(".member--signinStatus")
+let aLogin= document.querySelector(".journey--login")
+aLogin.addEventListener('click', popupLogin);
+let aLogout= document.querySelector(".journey--logout")
+aLogout.addEventListener('click', logOut);
 
 function showFormSignin(){
     idName.style.display="none";
