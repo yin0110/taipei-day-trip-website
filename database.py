@@ -9,11 +9,3 @@ pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
                                                    user=db["user"],
                                                    password=db["password"],
                                                    database=db["db"])
-
-
-# pool2 = mysql.connector.pooling.MySQLConnectionPool(pool_name="pool",
-#                                                     pool_size=10,
-#                                                     host="localhost",
-#                                                     user="root",
-#                                                     password="qazxsw123",
-#                                                     database="users")
