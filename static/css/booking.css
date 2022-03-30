@@ -183,6 +183,7 @@ body {
   .section--bookingperson,
   .section__nobooking {
     margin-left: 5px;
+    width: 100vw;
   }
   .section2__contact {
     width: 100vw;
@@ -233,6 +234,9 @@ body {
 }
 
 @media (max-width: 360px) {
+  .body {
+    overflow-x: hidden;
+  }
   .wholeSection {
     justify-items: left;
     width: 100vw;
