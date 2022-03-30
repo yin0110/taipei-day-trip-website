@@ -180,8 +180,12 @@ body {
   .delete {
     right: 10px;
   }
-  .section--bookingperson,
   .section__nobooking {
+    justify-items: left;
+  }
+  .section--bookingperson,
+  .section__nobooking,
+  .nobooking {
     margin-left: 5px;
     width: 100vw;
   }
