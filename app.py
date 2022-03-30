@@ -17,6 +17,7 @@ from flask import *
 from database import pool, db
 from root import usrRoot
 from memberAPI import test
+from bookingAPI import booking
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
@@ -25,6 +26,8 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['JSON_SORT_KEYS'] = False
 app.register_blueprint(usrRoot)
 app.register_blueprint(test)
+app.register_blueprint(booking)
+
 app.secret_key = db["mysecret"]
 # Pages
 
@@ -200,4 +203,4 @@ def spotspage():
 
 
 # app.run(port=3000, debug=True)
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=3000, debug=True)

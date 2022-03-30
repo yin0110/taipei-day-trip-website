@@ -9,6 +9,8 @@ async function checkLogin(){
     if (statusCode["data"]){
         login.style.display="none";
         logout.style.display="inline-block";
+        customerName=statusCode["data"]["name"]
+        localStorage.setItem("customerName",customerName);
     }
     }
     catch(error){
@@ -30,4 +32,24 @@ async function logOut(){
     setTimeout(function(){
         window.location.reload();
         }, 50);
+}
+
+async function bookingCheckLogin(){
+    url= `/api/usr`
+    accessMethod="GET"
+    try{
+    let fetchInfo= await fetch(url, {method:accessMethod});
+    let statusCode= await fetchInfo.json();
+    if (statusCode["data"]){
+        login.style.display="none";
+        logout.style.display="inline-block";
+    }
+    }
+    catch(error){
+        location.href = `/`;
+        // login.style.display="inline-block";
+        // login.innerHTML="註冊/登入"
+        // login.style.color="#666666"
+        // logout.style.display="none";
+    }
 }

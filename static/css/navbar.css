@@ -1,3 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+
 nav {
   top: 0px;
   position: fixed;
@@ -82,4 +92,15 @@ a {
   opacity: 0.25;
   z-index: 5;
   display: none;
+}
+
+footer {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: #757575;
+  color: #ffffff;
+  line-height: 104px;
+  height: 104px;
+  width: 100vw;
 }

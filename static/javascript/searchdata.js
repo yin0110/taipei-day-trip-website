@@ -12,7 +12,7 @@ async function searchData(){
         let result= await keywordAPI.json();
             if(result.error){
                 divOuter.innerHTML = `查無符合${val}的景點`;
-                console.log(result)
+                
             }
             else{
             let dataInfo= result.data;

@@ -1,6 +1,12 @@
-let ip = location.host;
-let url=window.location.href
-let thisId=url.split(ip+"/attraction/")[1]
+let thisId=null;
+
+function getPageAttractionId(){
+    let ip = location.host;
+    let url=window.location.href
+    thisId=url.split(ip+"/attraction/")[1]
+    return thisId
+}
+
 let photo=null;
 let imgQty=null;
 let qty=0;
@@ -21,6 +27,7 @@ function showPosition(){
 }
 //建立頁面影像
 async function attractionView(){
+    getPageAttractionId()
     let idAPI= await fetch(`/api/attraction/${thisId}`);
     let result= await idAPI.json();
     let dataInfo= result.data;

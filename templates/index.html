@@ -13,11 +13,11 @@
     <div class="member--colorbar"></div>
     <div class="member--close" onclick="closeLogin()"><img src="{{url_for('static', filename='/img/icon_close.png')}}"></div>
     <div class="member--title">登入會員帳號</div>
-        <form class="form" action="" method="get" target="iframe">    
-            <input class="member--name" id="name" type="text" name="name" placeholder="輸入姓名" required>
-            <input class="member--email" type="text" id="email" name="email" placeholder="輸入電子信箱" required>
+        <form id="form" class="form" action="" method="get" target="iframe">    
+            <input class="member--name" id="name" type="text" name="name" placeholder="輸入姓名">
+            <input class="member--email" type="email" id="email" name="email" placeholder="輸入電子信箱" required>
             <input class="member--password" type="password" id="password" name="password" placeholder="輸入密碼" required>
-            <button class="member--button" type="button" onclick="loginOrSignup()">註冊新帳號</button>
+            <button class="member--button" type="submit">註冊新帳號</button>
         </form>
         <iframe id="id_iframe" name="iframe" style="display:none;"></iframe>  
     <div class="member--signup" onclick="signupForm()">還沒有帳戶？點此註冊</div>
@@ -45,6 +45,7 @@
     <script src="{{url_for('static', filename='/javascript/app.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/searchdata.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
     <!-- <script src="{{url_for('static', filename='/try.js')}}"></script> -->
     <footer>
         <p>COPYRIGHT © 2021 台北一日遊</p>

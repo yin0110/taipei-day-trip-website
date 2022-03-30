@@ -12,6 +12,10 @@ let aLogin= document.querySelector(".journey--login")
 aLogin.addEventListener('click', popupLogin);
 let aLogout= document.querySelector(".journey--logout")
 aLogout.addEventListener('click', logOut);
+let memberTitle= document.querySelector(".member--title")
+let form= document.querySelector("#form")
+form.addEventListener('submit', loginOrSignup);
+
 
 function showFormSignin(){
     idName.style.display="none";
@@ -19,9 +23,11 @@ function showFormSignin(){
     signUp.style.display="block";
     member.style.height="281.5px";
     email.style.marginTop="15px";
-    memberButton.innerHTML="登入帳戶"
-    signUp.style.marginBottom="15px"
-    background.style.display="block"
+    memberButton.innerHTML="登入帳戶";
+    signUp.style.marginBottom="15px";
+    background.style.display="block";
+    memberTitle.innerHTML="會員登入";
+    idName.removeAttribute("required");
 }
 
 
@@ -30,6 +36,10 @@ function popupLogin(){
     // let member= document.querySelector("#member")
     member.style.display="flex";
     signInStatus.style.display="none"
+    memberTitle.innerHTML="會員登入";
+    // idName.value=null;
+    // email.value=null;
+    // password.value=null;
     showFormSignin();
 }
 //關掉表單
@@ -47,6 +57,8 @@ function signupForm(){
     email.style.marginTop="10px";
     signIn.style.marginBottom="15px"
     memberButton.innerHTML="註冊新帳戶";
+    memberTitle.innerHTML="註冊會員帳號";
+    idName.setAttribute("required", "");
     
 }
 
@@ -72,6 +84,9 @@ async function loginOrSignup(){
             signInStatus.innerHTML="註冊成功，請重新登入"
             signInStatus.style.display="block"
             signIn.style.display="none";
+            setTimeout(function(){
+                popupLogin();
+                }, 1000);
     }
         else{
         
@@ -95,7 +110,7 @@ async function loginOrSignup(){
             signUp.style.display="none";
             setTimeout(function(){
                 window.location.reload();
-                }, 1000);
+                }, 500);
         }
         else{
             signInStatus.innerHTML=statusCode["message"]+"，請重新輸入"
@@ -106,5 +121,3 @@ async function loginOrSignup(){
 
     }
 }
-
-

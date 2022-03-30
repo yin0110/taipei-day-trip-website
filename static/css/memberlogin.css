@@ -80,7 +80,13 @@
   color: #666666;
   cursor: pointer;
 }
+.member--signup:hover {
+  color: #448899;
+}
 
+.member--signin:hover {
+  color: #448899;
+}
 .member--signin {
   margin-top: 10px;
   width: 310px;

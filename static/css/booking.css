@@ -1,0 +1,254 @@
+nav {
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e8;
+}
+
+body {
+  font-size: 16px;
+  color: #666666;
+}
+.section__nobooking {
+  display: grid;
+  justify-items: center;
+}
+
+.nobooking {
+  width: 990px;
+}
+.wholeSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: center;
+}
+.section--bookingperson {
+  margin-top: 46px;
+  width: 990px;
+  font-weight: 700;
+  font-size: 19px;
+}
+.section__bookingplace {
+  margin-top: 35px;
+  width: 990px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e8;
+}
+
+.section__bookingplace--img {
+  height: 200px;
+  width: 266px;
+  /* margin-bottom: 40px; */
+}
+.booking--img {
+  width: 266px;
+  height: 200px;
+  object-fit: cover;
+}
+.section__bookingplace__box {
+  margin-left: 22px;
+  position: relative;
+}
+.delete {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+.bookingplace__box--attractionName {
+  color: #448899;
+  font-weight: 700;
+  display: flex;
+}
+.bookingplace__box--date {
+  margin-top: 20px;
+  font-weight: 700;
+  display: flex;
+}
+.box--date--content {
+  margin-left: 5px;
+  font-weight: 400;
+}
+.bookingplace__box--time {
+  margin-top: 20px;
+  font-weight: 700;
+  display: flex;
+}
+.box--time--content {
+  margin-left: 5px;
+  font-weight: 400;
+}
+.bookingplace__box--cost {
+  margin-top: 20px;
+  font-weight: 700;
+  display: flex;
+}
+.box--cost--content {
+  margin-left: 5px;
+  font-weight: 400;
+}
+.bookingplace__box--place {
+  margin-top: 20px;
+  font-weight: 700;
+  display: flex;
+  margin-bottom: 40px;
+}
+.box--place--content {
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.section2__contact {
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e8;
+}
+
+.section2__contact--info {
+  font-size: 19px;
+  margin-top: 44px;
+  font-weight: 700;
+  width: 990px;
+}
+
+.section2__contact--name {
+  margin-top: 31px;
+}
+#bookingname,
+#bookingemail,
+#bookingphone {
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  width: 200px;
+  height: 38px;
+}
+.section2__contact--email,
+.section2__contact--phone {
+  margin-top: 15px;
+}
+.section2__contact--notice {
+  margin-top: 20px;
+  margin-bottom: 45px;
+  font-weight: 700;
+}
+
+.section4__sum {
+  width: 990px;
+  height: 150px;
+  position: relative;
+}
+
+.section4__sum--totalpayment {
+  font-weight: 700;
+  position: absolute;
+  right: 0px;
+  margin-top: 43px;
+}
+
+.section4__sum--confrim {
+  position: absolute;
+  right: 0px;
+  background-color: #448899;
+  font-size: 19px;
+  border-radius: 5px;
+  width: 173px;
+  padding: 10px 20px;
+  text-justify: center;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  margin-top: 82px;
+  margin-bottom: 62px;
+}
+
+@media (max-width: 1000px) {
+  .wholeSection {
+    justify-items: left;
+  }
+  .section__bookingplace {
+    width: 100vw;
+    grid-template-columns: auto 1fr;
+  }
+  .section__bookingplace--img {
+    margin-left: 10px;
+  }
+  .section__bookingplace__box {
+    margin-left: 32px;
+  }
+  .delete {
+    right: 10px;
+  }
+  .section--bookingperson,
+  .section__nobooking {
+    margin-left: 5px;
+  }
+  .section2__contact {
+    width: 100vw;
+  }
+  .section2__contact--info,
+  form,
+  .section2__contact--notice {
+    width: 100vw;
+    margin-left: 10px;
+  }
+  .section4__sum {
+    width: 100vw;
+  }
+  .section4__sum--totalpayment,
+  .section4__sum--confrim {
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wholeSection {
+    justify-items: left;
+  }
+  .section__bookingplace--img {
+    width: 340px;
+    height: 256px;
+  }
+  .booking--img {
+    width: 340px;
+    height: 256px;
+  }
+  .section__bookingplace {
+    grid-template-columns: 1fr;
+  }
+  .section__bookingplace__box {
+    margin-top: 35px;
+    margin-left: 10px;
+  }
+  .bookingplace__box--place {
+    margin-bottom: 65px;
+  }
+  .section2__contact--notice {
+    padding-right: 15px;
+  }
+  .delete {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .wholeSection {
+    justify-items: center;
+  }
+  .section__bookingplace {
+    width: 340px;
+  }
+  .section__bookingplace--img {
+    margin-left: 0px;
+  }
+  .section__bookingplace__box {
+    margin-left: 0px;
+  }
+  .section2__contact {
+    width: 340px;
+  }
+  .section2__contact--info,
+  form,
+  .section2__contact--notice {
+    margin-left: 0px;
+  }
+}
