@@ -72,7 +72,7 @@ function getdata(){
                 }
         }}
     apiFetch()
-    currentPage=1
+    // currentPage=1
         // console.log(currentPage)
     let divNew= document.createElement("p");
     document.body.appendChild(divNew);
@@ -86,7 +86,7 @@ function getdata(){
     const target = document.querySelector('.divNew');
         // const img=document.querySelector('.siteinner');
     observer.observe(target);
-        // currentPage=1;
+        currentPage=1;
     function endImg (entries, ob) {
         entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -118,7 +118,6 @@ async function searchData(){
                 //拿出dataAPI字典，以便後面拿取不同資訊資
             if(keywordJson.error==true){
                 divOuter.innerHTML = `查無符合${val}的景點`;
-                console.log(keywordJson.error)
                 }
                 else{
                 let dataInfo= keywordJson.data;  
@@ -183,7 +182,6 @@ async function searchData(){
                 
             }
             await getKeyword();
-            page=1
             let divNew= document.createElement("p");
             document.body.appendChild(divNew);
             divNew.className="divNew";
@@ -197,16 +195,16 @@ async function searchData(){
             const target = document.querySelector('.divNew');
             // const img=document.querySelector('.siteinner');
             observer.observe(target);
-            function endImg (entries, ob) {
-                entries.forEach(entry => {
+            page=1
+            async function endImg (entry, ob) {
                 if(entry.isIntersecting){
                     if(page !== "null"){
-                    getKeyword();    
+                    await getKeyword();
                 }
                     else{
                     ob.unobserve(target);
                     }
                 }
-                })}     
+                }     
 
 }

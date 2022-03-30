@@ -6,18 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台北一日遊</title>
     <link rel="stylesheet" href="{{url_for('static', filename='/css/attraction.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/memberlogin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/navbar.css')}}">
 </head>
-<body>
-    <nav>
-        <div class="desktop">
-            <div class="desktop__taipei" onclick="home()">台北一日遊</div>
-            <div class="desktop__journey">
-                <a class="desktop__journey--left" href="">預定行程</a>
-                <a href="">註冊/</a>
-                <a href="">登入</a>
-            </div>
-        </div>   
-    </nav>
+<body onload=checkLogin()>
+    <div id="member" class="member">
+        <div class="member--colorbar"></div>
+        <div class="member--close" onclick="closeLogin()"><img src="{{url_for('static', filename='/img/icon_close.png')}}"></div>
+        <div class="member--title">登入會員帳號</div>
+            <form id="form" class="form" action="" method="get" target="iframe">    
+                <input class="member--name" id="name" type="text" name="name" placeholder="輸入姓名" required>
+                <input class="member--email" type="email" id="email" name="email" placeholder="輸入電子信箱" required>
+                <input class="member--password" type="password" id="password" name="password" placeholder="輸入密碼" required>
+                <button class="member--button" type="submit">註冊新帳號</button>
+            </form>
+            <iframe id="id_iframe" name="iframe" style="display:none;"></iframe>  
+        <div class="member--signup" onclick="signupForm()">還沒有帳戶？點此註冊</div>
+        <div class="member--signin" onclick="signinForm()">已經有帳號了？點此登入</div>
+        <div class="member--signinStatus">登入成功</div>
+    </div>
+    <div class="background"></div>
     <div class="block"></div>
     <main>
         <div class="sectionMain">
@@ -47,7 +55,8 @@
                     <div class="content__journey--cost">導覽費用：
                         <div class="cost--fee">新台幣 2000 元</div>
                     </div>
-                    <div class="content__journey--button">開始預定行程</div>
+                    <div class="content__journey--button" onclick="booking()">開始預定行程</div>
+                    <div class="error"></div>
                 </div>
             </div>
         </div>
@@ -62,7 +71,12 @@
             <div class="section2--way"></div>
         </div>
     </article>
+    <script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
     <script src="{{url_for('static', filename='/javascript/attraction.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/booking.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
     <footer>
         <p>COPYRIGHT © 2021 台北一日遊</p>
     </footer>

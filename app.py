@@ -11,26 +11,24 @@ import yaml
 import ast
 from crypt import methods
 from webbrowser import get
-from flask import Flask, jsonify, url_for, redirect, session
+# from flask import Flask, jsonify, url_for, redirect, session, Blueprint
 from flask import request
 from flask import *
-import mysql.connector.pooling
+from database import pool, db
+from root import usrRoot
+from memberAPI import test
+from bookingAPI import booking
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # 避免自動排序
 app.config['JSON_SORT_KEYS'] = False
-# 資料庫建立
-db = yaml.safe_load(open('secret.yaml'))
-pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
-                                                   pool_size=10,
-                                                   host=db["host"],
-                                                   user=db["user"],
-                                                   password=db["password"],
-                                                   database=db["db"])
+app.register_blueprint(usrRoot)
+app.register_blueprint(test)
+app.register_blueprint(booking)
 
-
+app.secret_key = db["mysecret"]
 # Pages
 
 
@@ -77,8 +75,6 @@ def spots(attractionId):
         data = jsonify({"data": attractionInfo})
         data.headers.add("Content-Type", "application/json")
         data.headers.add("Access-Control-Allow-Origin", "*")
-        # attractionInfo = json.dumps(
-        #     {"data": attractionInfo}, ensure_ascii=False, indent=4)
         cnx.close()
         cur.close()
         return data
@@ -131,6 +127,7 @@ def spotspage():
                 # limit %s, %s;", (startdata, perpage)
                 # WHERE name Like '%館%'
                 attractionInfo = cur.fetchall()
+
                 fullData = []
                 for spot in attractionInfo:
                     imgStr = spot["images"]
@@ -206,4 +203,4 @@ def spotspage():
 
 
 # app.run(port=3000, debug=True)
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=3000, debug=True)
