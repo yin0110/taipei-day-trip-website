@@ -28,6 +28,7 @@ function showFormSignin(){
     background.style.display="block";
     memberTitle.innerHTML="會員登入";
     idName.removeAttribute("required");
+
 }
 
 
@@ -37,9 +38,7 @@ function popupLogin(){
     member.style.display="flex";
     signInStatus.style.display="none"
     memberTitle.innerHTML="會員登入";
-    // idName.value=null;
-    // email.value=null;
-    // password.value=null;
+
     showFormSignin();
 }
 //關掉表單
@@ -58,8 +57,7 @@ function signupForm(){
     signIn.style.marginBottom="15px"
     memberButton.innerHTML="註冊新帳戶";
     memberTitle.innerHTML="註冊會員帳號";
-    idName.setAttribute("required", "");
-    
+    idName.setAttribute("required", "");    
 }
 
 //登入表單

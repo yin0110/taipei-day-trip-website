@@ -35,6 +35,7 @@ async function getBookingInfo(){
             errorMessage.innerHTML=statusCode["message"];
         }
         else{
+            deleteLastAttraction();
             location.href = `/booking`;
         }
       }
@@ -55,7 +56,6 @@ async function booking(){
             let accessMethod="DELETE";
             let fetchView= await fetch(url, {method:accessMethod});
         }
-        deleteLastAttraction();
         getBookingInfo();
     }
     }
