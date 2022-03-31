@@ -2,6 +2,12 @@ let errorMessage=document.querySelector(".error");
 let date= document.querySelector("#date");
 // let bookingJourney= document.querySelector(".journey--book");
 // bookingJourney.addEventListener('click', bookingJourneyOnclick);
+async function deleteLastAttraction(){
+    let url=`/api/booking`;
+    let accessMethod="DELETE";
+    let fetchView= await fetch(url, {method:accessMethod});
+}
+
 
 async function getBookingInfo(){
     if(document.getElementById('time1').checked) {
@@ -10,7 +16,7 @@ async function getBookingInfo(){
         dateInfo=date.value;
         time="morning";
         thisId=Number(thisId)
-        getPageAttractionId()
+        await getPageAttractionId()
         let url=`/api/booking?attractionId=${thisId}&date=${dateInfo}&time=${time}&price=${costInfo}`;
         let accessMethod="POST"
         let fetchInfo= await fetch(url, {method:accessMethod});
@@ -35,7 +41,6 @@ async function getBookingInfo(){
             errorMessage.innerHTML=statusCode["message"];
         }
         else{
-            deleteLastAttraction();
             location.href = `/booking`;
         }
       }
@@ -56,7 +61,8 @@ async function booking(){
             let accessMethod="DELETE";
             let fetchView= await fetch(url, {method:accessMethod});
         }
-        getBookingInfo();
+        await deleteLastAttraction()
+        await getBookingInfo();
     }
     }
     catch(error){
