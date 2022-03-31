@@ -207,17 +207,19 @@ body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 724px) {
   .wholeSection {
-    justify-items: left;
+    justify-content: left;
   }
   .section__bookingplace--img {
-    width: 340px;
+    width: 100vw;
     height: 256px;
   }
   .booking--img {
-    width: 340px;
+    width: 100%;
     height: 256px;
+    object-fit: cover;
+    padding-right: 20px;
   }
   .section__bookingplace {
     grid-template-columns: 1fr;
@@ -264,5 +266,8 @@ body {
   form,
   .section2__contact--notice {
     margin-left: 0px;
+  }
+  .booking--img {
+    padding-right: 10px;
   }
 }
