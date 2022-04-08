@@ -116,7 +116,6 @@ async function onSubmit(event) {
 	// 確認是否可以 getPrime
 	if (tappayStatus.canGetPrime === false) {
 		getPrimeError.innerHTML = "請輸入正確的付款資訊";
-		errorHeight.style.marginBottom = "20px";
 		return;
 	}
 
@@ -124,7 +123,6 @@ async function onSubmit(event) {
 	TPDirect.card.getPrime(async (result) => {
 		if (result.status !== 0) {
 			getPrimeError.innerHTML = "請輸入正確的付款資訊";
-			errorHeight.style.marginBottom = "20px";
 			return;
 		} else {
 			prime = result.card.prime;
