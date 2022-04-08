@@ -16,8 +16,9 @@ from flask import request
 from flask import *
 from database import pool, db
 from root import usrRoot
-from memberAPI import test
+from memberAPI import member_API
 from bookingAPI import booking
+from orderAPI import order_API
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 app.config["JSON_AS_ASCII"] = False
@@ -25,9 +26,9 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # 避免自動排序
 app.config['JSON_SORT_KEYS'] = False
 app.register_blueprint(usrRoot)
-app.register_blueprint(test)
+app.register_blueprint(member_API)
 app.register_blueprint(booking)
-
+app.register_blueprint(order_API)
 app.secret_key = db["mysecret"]
 # Pages
 
