@@ -135,7 +135,6 @@ class order_model:
                     cur = cnx.cursor(dictionary=True)
                     cur.execute("INSERT INTO booking(prime, orderAttraction, image, date, time, price, contactPerson, contactEmail, contactPhone, orderEmail, number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                             (prime, attraction_id, image, date, time, price, contact_name, contact_email, contact_phone, orderPerson, po_number,))
-                
                     cnx.commit()
                     cur.close()
                     cnx.close()

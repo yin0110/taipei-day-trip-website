@@ -19,12 +19,10 @@ async function finishOrder() {
 	if (orderInfo["data"]) {
 		welcomeTitle.innerHTML = `您好，${customerName}，感謝您完成訂購`;
 		nobooking.innerHTML = `訂單號碼：${orderNumber}`;
-		footer.style.height = "865px";
 		welcomeTitle.style.marginBottom = "35px";
 		nobooking.style.marginBottom = "40px";
 	} else {
 		welcomeTitle.innerHTML = `您好，請輸入正確的訂單號碼`;
-		footer.style.height = "865px";
 		welcomeTitle.style.marginBottom = "35px";
 		nobooking.style.marginBottom = "40px";
 	}

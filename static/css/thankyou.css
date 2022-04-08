@@ -23,6 +23,16 @@ body {
 .nobooking {
 	width: 990px;
 }
+footer {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	background: #757575;
+	color: #ffffff;
+	line-height: 104px;
+	height: 865px;
+	width: 100vw;
+}
 @media (max-width: 1000px) {
 	.wholeSection {
 		justify-content: left;
