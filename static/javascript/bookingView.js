@@ -15,7 +15,7 @@ let blank = document.querySelector(".blank");
 async function showBookingView() {
 	setTimeout(function () {
 		blank.style.display = "none";
-	}, 200);
+	}, 300);
 	welcomeTitle.innerHTML = `您好， ${customerName}，待預定的行程如下：`;
 	let url = `/api/booking`;
 	let accessMethod = "GET";
