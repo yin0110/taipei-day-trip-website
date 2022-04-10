@@ -6,10 +6,10 @@ import mysql.connector
 from flask import *
 import flask
 from model import usrModel
-test = Blueprint("test", __name__)
+member_API = Blueprint("member_API", __name__)
 
 
-@test.route("/api/usr", methods=['GET', 'POST', 'PATCH', 'DELETE'])
+@member_API.route("/api/usr", methods=['GET', 'POST', 'PATCH', 'DELETE'])
 def accessMethod():
     if request.method == "GET":
         return usrModel.GET()

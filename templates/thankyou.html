@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>台北一日遊</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/navbar.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/memberlogin.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/thankyou.css')}}"
+		/>
+	</head>
+	<body onload="bookingCheckLogin()">
+		<!-- <div id="member" class="member">
+			<div class="member--colorbar"></div>
+			<div class="member--close" onclick="closeLogin()">
+				<img src="{{url_for('static', filename='/img/icon_close.png')}}" />
+			</div>
+			<div class="member--title">登入會員帳號</div>
+			<form id="form" class="form" action="" method="get" target="iframe">
+				<input
+					class="member--name"
+					id="name"
+					type="text"
+					name="name"
+					placeholder="輸入姓名"
+				/>
+				<input
+					class="member--email"
+					type="email"
+					id="email"
+					name="email"
+					placeholder="輸入電子信箱"
+					required
+				/>
+				<input
+					class="member--password"
+					type="password"
+					id="password"
+					name="password"
+					placeholder="輸入密碼"
+					required
+				/>
+				<button class="member--button" type="submit">註冊新帳號</button>
+			</form>
+			<iframe id="id_iframe" name="iframe" style="display: none"></iframe>
+			<div class="member--signup" onclick="signupForm()">
+				還沒有帳戶？點此註冊
+			</div>
+			<div class="member--signin" onclick="signinForm()">
+				已經有帳號了？點此登入
+			</div>
+			<div class="member--signinStatus">登入成功</div>
+		</div> -->
+		<div class="background"></div>
+		<div class="block"></div>
+		<div class="blank"></div>
+		<div class="wholeSection">
+			<div class="section__nobooking">
+				<div class="section--bookingperson"></div>
+				<div class="nobooking"></div>
+				<div class="bookingperson--orderDate"></div>
+			</div>
+		</div>
+		<script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
+		<footer class="footer">
+			<p>COPYRIGHT © 2021 台北一日遊</p>
+		</footer>
+		<script src="{{url_for('static', filename='/javascript/finishOrder.js')}}"></script>
+	</body>
+</html>
