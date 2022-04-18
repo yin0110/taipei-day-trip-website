@@ -24,10 +24,6 @@ class usrModel:
                 name = request.form["name"]
                 email = request.form["email"]
                 password = request.form["password"]
-                # password = request.args.get("password")
-                # name = request.args.get("name")
-                # email = request.args.get("email")
-                # password = request.args.get["password"]
                 cnx = pool.get_connection()
                 cur = cnx.cursor(dictionary=True)
                 cur.execute("SELECT * FROM member WHERE email = %s", (email,))

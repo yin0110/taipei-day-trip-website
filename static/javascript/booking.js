@@ -16,7 +16,6 @@ async function getBookingInfo() {
 		thisId = Number(thisId);
 		await getPageAttractionId();
 		let url = `/api/booking`;
-		// ?attractionId=${thisId}&date=${dateInfo}&time=${time}&price=${costInfo}`;
 		let accessMethod = "POST";
 		let fetchInfo = await fetch(url, {
 			method: accessMethod,
@@ -41,7 +40,6 @@ async function getBookingInfo() {
 		dateInfo = date.value;
 		time = "afternoon";
 		let url = `/api/booking`;
-		// ?attractionId=${thisId}&date=${dateInfo}&time=${time}&price=${costInfo}`;
 		let accessMethod = "POST";
 		let fetchInfo = await fetch(url, {
 			method: accessMethod,
@@ -81,51 +79,3 @@ async function booking() {
 		popupLogin();
 	}
 }
-
-// async function booking(){
-//     if(document.getElementById('time1').checked) {
-//         cost=document.getElementById('time1').value
-//         costInfo=Number(cost.substr(4, 4))
-//         dateInfo=date.value;
-//         time="morning";
-//         thisId=Number(thisId)
-//         await getPageAttractionId()
-//         let url=`/api/booking`;
-//         // ?attractionId=${thisId}&date=${dateInfo}&time=${time}&price=${costInfo}`;
-//         let accessMethod="POST";
-//         let fetchInfo= await fetch(url, {method:accessMethod,
-//             headers:{"Content-Type":"application/json"},
-//             body:JSON.stringify({
-//             "attractionId": thisId, "date":dateInfo, "time":time, "price":costInfo
-//             })});
-//         let statusCode= await fetchInfo.json();
-//         if (statusCode["message"]){
-//             errorMessage.innerHTML=statusCode["message"];
-//         }
-//         else{
-//             location.href = `/booking`;
-//         }
-//       }else{
-//         document.getElementById('time2').checked
-//         cost=document.getElementById('time2').value
-//         costInfo=Number(cost.substr(4, 4))
-//         dateInfo=date.value;
-//         time="afternoon"
-//         let url=`/api/booking`;
-//         // ?attractionId=${thisId}&date=${dateInfo}&time=${time}&price=${costInfo}`;
-//         let accessMethod="POST";
-//         let fetchInfo= await fetch(url, {method:accessMethod,
-//             headers:{"Content-Type":"application/json"},
-//             body:JSON.stringify({
-//             "attractionId": thisId, "date":dateInfo, "time":time, "price":costInfo
-//             })});
-//         let statusCode= await fetchInfo.json();
-//         if (statusCode["message"]){
-//             errorMessage.innerHTML=statusCode["message"];
-//         }
-//         else{
-//             location.href = `/booking`;
-//         }
-//       }
-
-// }

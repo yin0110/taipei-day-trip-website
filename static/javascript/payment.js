@@ -167,9 +167,5 @@ async function onSubmit(event) {
 			} else {
 			}
 		}
-		// alert("get prime 成功，prime: " + result.card.prime);
-
-		// send prime to your server, to pay with Pay by Prime API .
-		// Pay By Prime Docs: https://docs.tappaysdk.com/tutorial/zh/back.html#pay-by-prime-api
 	});
 }

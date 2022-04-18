@@ -90,42 +90,6 @@ class booking_model:
                             "message": "內部問題"
                             })
             return data, 500
-    # def POST(self):
-    #     try:
-    #         if "signin" in session:
-    #             requestInfo = request.get_json(force=True)
-    #             attraction_id = request.args.get("attractionId")
-    #             date = request.args.get("date")
-    #             time = request.args.get("time")
-    #             price = request.args.get("price")
-    #             if attraction_id == "" or date == "" or price == "" or time == "":
-    #                 data = jsonify({"error": True,
-    #                                 "message": "請輸入全部資訊"
-    #                                 })
-    #                 return data, 400
-    #             else:
-    #                 session["attraction_id"] = attraction_id
-    #                 cnx = pool.get_connection()
-    #                 cur = cnx.cursor(dictionary=True)
-    #                 cur.execute("INSERT INTO item(attractionId, date, time, price) VALUES (%s, %s, %s, %s)",
-    #                             (attraction_id, date, time, price,))
-    #                 cnx.commit()
-    #                 booking_id = cur.lastrowid
-    #                 session["booking_id"] = booking_id
-    #                 cur.close()
-    #                 cnx.close()
-    #                 data = jsonify({"ok": True})
-    #             return data, 200
-    #         else:
-    #             data = jsonify({"error": True,
-    #                             "message": "未登入系統，拒絕存取"
-    #                             })
-    #             return data, 403
-    #     except:
-    #         data = jsonify({"error": True,
-    #                         "message": "內部問題"
-    #                         })
-    #         return data, 500
 
     def DELETE(self):
         booking_id = session["booking_id"]

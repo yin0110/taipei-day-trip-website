@@ -75,7 +75,6 @@ class usrModel:
                                 "message": "帳號密碼錯誤"
                                 })
                 return data, 400
-            # return "ok"
         except:
             data = jsonify({"error": True,
                             "message": "內部問題"
