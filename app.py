@@ -1,12 +1,9 @@
 from distutils.log import debug
-import numpy as np
 import math
 from unicodedata import category
 import mysql.connector
 import urllib.request as re
 import json
-from sqlalchemy import null
-import yaml
 from crypt import methods
 from webbrowser import get
 # from flask import Flask, jsonify, url_for, redirect, session, Blueprint

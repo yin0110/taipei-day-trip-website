@@ -1,54 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台北一日遊</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='/css/index.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='/css/memberlogin.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='/css/navbar.css')}}">
-</head>
-<div id="member" class="member">
-    <div class="member--colorbar"></div>
-    <div class="member--close" onclick="closeLogin()"><img src="{{url_for('static', filename='/img/icon_close.png')}}"></div>
-    <div class="member--title">登入會員帳號</div>
-        <form id="form" class="form" action="" method="get" target="iframe">    
-            <input class="member--name" id="name" type="text" name="name" placeholder="輸入姓名">
-            <input class="member--email" type="email" id="email" name="email" placeholder="輸入電子信箱" required>
-            <input class="member--password" type="password" id="password" name="password" placeholder="輸入密碼" required>
-            <button class="member--button" type="submit">註冊新帳號</button>
-        </form>
-        <iframe id="id_iframe" name="iframe" style="display:none;"></iframe>  
-    <div class="member--signup" onclick="signupForm()">還沒有帳戶？點此註冊</div>
-    <div class="member--signin" onclick="signinForm()">已經有帳號了？點此登入</div>
-    <div class="member--signinStatus">登入成功</div>
-</div>
-<body onload=checkLogin()>
-    <div class="background"></div>
-    <div class="block"></div>
-    <header>
-        <div class="searchOuter">
-            <div class="searchsection">
-                <div class="searchsectionTitle1">輕鬆享受台北一日悠閒</div>
-                <div class="searchsectionTitle2">探索每個角落，體驗城市的深度旅遊行程</div>
-                <div class="searchbox">
-                    <input id="search" class="searchWord" type="text" placeholder="輸入景點名稱查詢">
-                    <button class="searchButton" onclick="searchData()"><img src="{{url_for('static', filename='/img/icon_search.png')}}" /></button>
-                </div>
-            </div>
-            <div><img class="building" src="{{url_for('static', filename='/img/welcome.png')}}"></div>
-        </div>
-    </header>
-    <script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
-    <script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
-    <script src="{{url_for('static', filename='/javascript/app.js')}}"></script>
-    <script src="{{url_for('static', filename='/javascript/searchdata.js')}}"></script>
-    <script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
-    <script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
-    <!-- <script src="{{url_for('static', filename='/try.js')}}"></script> -->
-    <footer>
-        <p>COPYRIGHT © 2021 台北一日遊</p>
-    </footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>台北一日遊</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/index.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/memberlogin.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/navbar.css')}}"
+		/>
+	</head>
+	<div id="member" class="member">
+		<div class="member--colorbar"></div>
+		<div class="member--close" onclick="closeLogin()">
+			<img src="{{url_for('static', filename='/img/icon_close.png')}}" />
+		</div>
+		<div class="member--title">登入會員帳號</div>
+		<form id="form" class="form" action="" method="get" target="iframe">
+			<input
+				class="member--name"
+				id="name"
+				type="text"
+				name="name"
+				placeholder="輸入姓名"
+			/>
+			<input
+				class="member--email"
+				type="email"
+				id="email"
+				name="email"
+				placeholder="輸入電子信箱"
+				value="test@test.com"
+				required
+			/>
+			<input
+				class="member--password"
+				type="password"
+				id="password"
+				name="password"
+				placeholder="輸入密碼"
+				value="123456"
+				required
+			/>
+			<button class="member--button" type="submit">註冊新帳號</button>
+		</form>
+		<iframe id="id_iframe" name="iframe" style="display: none"></iframe>
+		<div class="member--signup" onclick="signupForm()">
+			還沒有帳戶？點此註冊
+		</div>
+		<div class="member--signin" onclick="signinForm()">
+			已經有帳號了？點此登入
+		</div>
+		<div class="member--signinStatus">登入成功</div>
+	</div>
+	<body onload="checkLogin()">
+		<div class="background"></div>
+		<div class="block"></div>
+		<header>
+			<div class="searchOuter">
+				<div class="searchsection">
+					<div class="searchsectionTitle1">輕鬆享受台北一日悠閒</div>
+					<div class="searchsectionTitle2">
+						探索每個角落，體驗城市的深度旅遊行程
+					</div>
+					<div class="searchbox">
+						<input
+							id="search"
+							class="searchWord"
+							type="text"
+							placeholder="輸入景點名稱查詢"
+						/>
+						<button class="searchButton" onclick="searchData()">
+							<img
+								src="{{url_for('static', filename='/img/icon_search.png')}}"
+							/>
+						</button>
+					</div>
+				</div>
+				<div>
+					<img
+						class="building"
+						src="{{url_for('static', filename='/img/welcome.png')}}"
+					/>
+				</div>
+			</div>
+		</header>
+		<script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/app.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/searchdata.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
+		<!-- <script src="{{url_for('static', filename='/try.js')}}"></script> -->
+		<footer>
+			<p>COPYRIGHT © 2021 台北一日遊</p>
+		</footer>
+	</body>
 </html>
