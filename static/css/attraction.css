@@ -1,0 +1,402 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+/* navigation desktop */
+nav {
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e8;
+}
+
+/* 主要行程訂購 */
+main {
+  width: auto;
+  display: grid;
+  justify-content: center;
+}
+.sectionMain {
+  margin-top: 37px;
+  display: grid;
+  width: 1200px;
+  grid-template-columns: 540px 600px;
+  column-gap: 30px;
+}
+.sectionMain__img {
+  width: 540px;
+  height: 406px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+}
+.img--pic {
+  width: 540px;
+  height: 406px;
+  z-index: 1;
+  object-fit: cover;
+}
+.img--left {
+  margin-top: 185px;
+  position: absolute;
+  left: 10px;
+  opacity: 0.75;
+  z-index: 2;
+  cursor: pointer;
+}
+.img--right {
+  margin-top: 185px;
+  position: absolute;
+  right: 10px;
+  opacity: 0.75;
+  z-index: 2;
+  cursor: pointer;
+}
+.img--left:hover {
+  opacity: 1;
+}
+.img--right:hover {
+  opacity: 1;
+}
+#cir {
+  position: absolute;
+  bottom: 15px;
+  height: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+.cir__items {
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  margin-right: 12px;
+  background: #ffffff;
+  opacity: 0.75;
+}
+.position {
+  background: #000000;
+  border: 1.5px solid #ffffff;
+}
+
+.sectionMain__content {
+  width: 600px;
+  height: 392px;
+}
+
+.content__name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #666666;
+}
+
+.content__place {
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+  margin-top: 15px;
+}
+.content__journey {
+  margin-top: 20px;
+  background: #e8e8e8;
+  border-radius: 5px;
+  width: 600px;
+  height: 302px;
+  padding: 15px 20px;
+}
+.content__journey--title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #666666;
+}
+
+.content__journey--description {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+}
+.content__journey--date {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #666666;
+}
+.date--input {
+  border-style: none;
+  height: 35px;
+  padding-left: 10px;
+  width: 193px;
+  font-size: 16px;
+}
+
+.content__journey--time {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+
+.time--lable {
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 18px;
+}
+input[type="radio"] {
+  margin-right: 4px;
+  height: 22px;
+  width: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: #ffffff;
+}
+input:checked {
+  background: #448899;
+}
+
+.content__journey--cost {
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #666666;
+  display: flex;
+}
+.cost--fee {
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.content__journey--button {
+  margin-top: 25px;
+  background-color: #448899;
+  border-radius: 5px;
+  width: 154px;
+  height: 36px;
+  text-justify: center;
+  text-align: center;
+  color: #ffffff;
+  line-height: 36px;
+  cursor: pointer;
+}
+.error {
+  font-size: 12px;
+  color: #666666;
+}
+
+.horizon {
+  height: 37px;
+  width: 1200px;
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e8;
+}
+/* 下面資訊說明 */
+article {
+  display: grid;
+  justify-content: center;
+}
+.section2 {
+  width: 1200px;
+  color: #666666;
+  font-weight: 400;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+}
+
+.section2--description {
+  margin-top: 50px;
+  width: 1180px;
+}
+.section2--site {
+  margin-top: 20px;
+  width: 1180px;
+  font-weight: 700;
+}
+.section2--address {
+  width: 1180px;
+}
+.section2--transportation {
+  width: 1180px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+.section2--way {
+  width: 1180px;
+  margin-bottom: 120px;
+}
+
+footer {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: #757575;
+  color: #ffffff;
+  line-height: 104px;
+  height: 104px;
+  width: 100vw;
+}
+
+@media (max-width: 1200px) {
+  .sectionMain {
+    width: 100vw;
+    margin-top: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  }
+  .sectionMain__content {
+    width: auto;
+  }
+  .content__journey {
+    width: auto;
+    margin-right: 10px;
+    height: 300px;
+  }
+  .sectionMain__img {
+    width: auto;
+    height: 406px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .img--pic {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .sectionMain__content {
+    width: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .horizon {
+    width: auto;
+    height: 40px;
+  }
+  .section2 {
+    width: 100vw;
+  }
+  .section2--description {
+    width: auto;
+    margin: 50px 10px 20px 20px;
+  }
+  .section2--site {
+    width: auto;
+    margin: 0 10px 0 20px;
+    height: 32px;
+  }
+  .section2--address {
+    width: auto;
+    margin: 0 10px 20px 20px;
+  }
+  .section2--transportation {
+    width: auto;
+    margin: 0 10px 0 20px;
+    height: 32px;
+  }
+  .section2--way {
+    width: auto;
+    margin: 0 10px 120px 20px;
+  }
+}
+
+@media (max-width: 484px) {
+  .sectionMain {
+    width: 100vw;
+    margin-top: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+  .sectionMain__content {
+    width: auto;
+  }
+  .content__journey {
+    width: auto;
+    margin-right: 10px;
+    height: 336px;
+  }
+
+  .content__journey--cost {
+    margin-top: 24px;
+  }
+  .sectionMain__img {
+    width: auto;
+    height: 350px;
+    overflow: hidden;
+  }
+  .img--left {
+    margin-top: 157px;
+    position: absolute;
+    left: 10px;
+    opacity: 0.75;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .img--right {
+    margin-top: 157px;
+    position: absolute;
+    right: 10px;
+    opacity: 0.75;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .img--pic {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .sectionMain__content {
+    width: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .horizon {
+    margin-top: 40px;
+  }
+  .section2 {
+    width: 100vw;
+  }
+  .section2--description {
+    width: auto;
+    margin: 50px 10px 20px 20px;
+  }
+  .section2--site {
+    width: auto;
+    margin: 0 10px 0 20px;
+    height: 32px;
+  }
+  .section2--address {
+    width: auto;
+    margin: 0 10px 20px 20px;
+  }
+  .section2--transportation {
+    width: auto;
+    margin: 0 10px 0 20px;
+    height: 32px;
+  }
+  .section2--way {
+    width: auto;
+    margin: 0 10px 120px 20px;
+  }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>台北一日遊</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/navbar.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/memberlogin.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='/css/booking.css')}}"
+		/>
+	</head>
+	<body onload="bookingCheckLogin()">
+		<div id="member" class="member">
+			<div class="member--colorbar"></div>
+			<div class="member--close" onclick="closeLogin()">
+				<img src="{{url_for('static', filename='/img/icon_close.png')}}" />
+			</div>
+			<div class="member--title">登入會員帳號</div>
+			<form id="form" class="form" action="" method="get" target="iframe">
+				<input
+					class="member--name"
+					id="name"
+					type="text"
+					name="name"
+					placeholder="輸入姓名"
+				/>
+				<input
+					class="member--email"
+					type="email"
+					id="email"
+					name="email"
+					placeholder="輸入電子信箱"
+					required
+				/>
+				<input
+					class="member--password"
+					type="password"
+					id="password"
+					name="password"
+					placeholder="輸入密碼"
+					required
+				/>
+				<button class="member--button" type="submit">註冊新帳號</button>
+			</form>
+			<iframe id="id_iframe" name="iframe" style="display: none"></iframe>
+			<div class="member--signup" onclick="signupForm()">
+				還沒有帳戶？點此註冊
+			</div>
+			<div class="member--signin" onclick="signinForm()">
+				已經有帳號了？點此登入
+			</div>
+			<div class="member--signinStatus">登入成功</div>
+		</div>
+		<div class="background"></div>
+		<div class="block"></div>
+		<div class="blank"></div>
+		<div class="section__nobooking">
+			<div class="section--bookingperson"></div>
+			<div class="nobooking"></div>
+		</div>
+		<div class="wholeSection">
+			<!-- <div class="section--bookingperson"></div> -->
+			<div class="section__bookingplace">
+				<div class="section__bookingplace--img">
+					<img class="booking--img" src="" alt="" />
+				</div>
+				<div class="section__bookingplace__box">
+					<img
+						class="delete"
+						src="{{url_for('static', filename='/img/icon_delete.png')}}"
+						alt=""
+						onclick="deleteBooking()"
+					/>
+					<div class="bookingplace__box--attractionName">
+						台北一日遊：
+						<div class="box--attractionName--content">名稱</div>
+					</div>
+					<div class="bookingplace__box--date">
+						日期：
+						<div class="box--date--content">date</div>
+					</div>
+					<div class="bookingplace__box--time">
+						時間：
+						<div class="box--time--content">time</div>
+					</div>
+					<div class="bookingplace__box--cost">
+						費用：
+						<div class="box--cost--content">cost</div>
+					</div>
+					<div class="bookingplace__box--place">
+						地點：
+						<div class="box--place--content">place</div>
+					</div>
+				</div>
+			</div>
+			<div class="section2__contact">
+				<div class="section2__contact--info">您的聯絡資訊</div>
+				<form action="">
+					<div class="section2__contact--name">
+						<label class="bookingname" for="bookingname">聯絡姓名：</label>
+						<input type="text" name="name" id="bookingname" />
+					</div>
+					<div class="section2__contact--email">
+						<label for="bookingemail">連絡信箱：</label>
+						<input type="text" name="" id="bookingemail" />
+					</div>
+					<div class="section2__contact--phone">
+						<label for="bookingphone">手機號碼：</label>
+						<input type="text" name="" id="bookingphone" />
+					</div>
+				</form>
+				<div class="section2__contact--notice">
+					請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
+				</div>
+			</div>
+			<div class="section3__payment">
+				<div class="section3__payment--info">信用卡付款資訊</div>
+				<div class="section3__payment--card">
+					卡片號碼：
+					<div class="tpfield" id="card-number"></div>
+				</div>
+				<div class="section3__payment--expiredtime">
+					過期時間：
+					<div class="tpfield" id="card-expiration-date"></div>
+				</div>
+				<div class="section3__payment--password">
+					驗證密碼：
+					<div class="tpfield" id="card-ccv"></div>
+				</div>
+				<div class="payment__errorMessage"></div>
+			</div>
+			<div class="section4__sum">
+				<div class="section4__sum--totalpayment"></div>
+				<button
+					type="submit"
+					class="section4__sum--confrim"
+					onclick="onSubmit(event)"
+				>
+					確定訂購並付款
+				</button>
+			</div>
+		</div>
+		<script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+		<!-- <script src="{{url_for('static', filename='/javascript/bookingView.js')}}"></script> -->
+		<footer class="footer">
+			<p>COPYRIGHT © 2021 台北一日遊</p>
+		</footer>
+		<script src="{{url_for('static', filename='/javascript/bookingView.js')}}"></script>
+		<script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
+		<script src="https://js.tappaysdk.com/tpdirect/v5.8.0"></script>
+		<script src="{{url_for('static', filename='/javascript/payment.js')}}"></script>
+	</body>
+</html>

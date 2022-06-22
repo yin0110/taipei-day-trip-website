@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北一日遊</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/attraction.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/memberlogin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/navbar.css')}}">
+</head>
+<body onload=checkLogin()>
+    <div id="member" class="member">
+        <div class="member--colorbar"></div>
+        <div class="member--close" onclick="closeLogin()"><img src="{{url_for('static', filename='/img/icon_close.png')}}"></div>
+        <div class="member--title">登入會員帳號</div>
+            <form id="form" class="form" action="" method="get" target="iframe">    
+                <input class="member--name" id="name" type="text" name="name" placeholder="輸入姓名" required>
+                <input class="member--email" type="email" id="email" name="email" placeholder="輸入電子信箱" required>
+                <input class="member--password" type="password" id="password" name="password" placeholder="輸入密碼" required>
+                <button class="member--button" type="submit">註冊新帳號</button>
+            </form>
+            <iframe id="id_iframe" name="iframe" style="display:none;"></iframe>  
+        <div class="member--signup" onclick="signupForm()">還沒有帳戶？點此註冊</div>
+        <div class="member--signin" onclick="signinForm()">已經有帳號了？點此登入</div>
+        <div class="member--signinStatus">登入成功</div>
+    </div>
+    <div class="background"></div>
+    <div class="block"></div>
+    <main>
+        <div class="sectionMain">
+            <div class="sectionMain__img">
+                <img class="img--pic" src="">
+                <div class="img--left"><img  class="left" src="{{url_for('static', filename='/img/btn_leftArrow.png')}}" onclick="turn(this.className)"></div>
+                <div class="img--right"><img class="right" src="{{url_for('static', filename='/img/btn_rightArrow.png')}}" onclick="turn(this.className)"></div>
+                <ul id="cir">
+                </ul>
+            </div>
+            <div class="sectionMain__content">
+                <div class="content__name"></div>
+                <div class="content__place"></div>
+                <div class="content__journey">
+                    <div class="content__journey--title">訂購導覽行程</div>
+                    <div class="content__journey--description">以此景點為中心的一日行程，帶您探索城市角落故事</div>
+                    <div class="content__journey--date">
+                        <label for="date">選擇日期：</label>
+                        <input class="date--input" type="date" id="date" name="date">
+                    </div>
+                    <div class="content__journey--time">選擇時間：
+                        <input  type="radio" id="time1" name="time" value="新台幣 2000 元" onclick="chosenTime(this.value)" checked> 
+                        <label class="time--lable" for="time1">上半天</label>
+                        <input  type="radio" id="time2" name="time" value="新台幣 2500 元" onclick="chosenTime(this.value)">
+                        <label class="time--lable" for="time2">下半天</label>
+                    </div>
+                    <div class="content__journey--cost">導覽費用：
+                        <div class="cost--fee">新台幣 2000 元</div>
+                    </div>
+                    <div class="content__journey--button" onclick="booking()">開始預定行程</div>
+                    <div class="error"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <article>
+        <div class="horizon"></div>
+        <div class="section2">
+            <div class="section2--description"></div>
+            <div class="section2--site">景點地址：</div>
+            <div class="section2--address"></div>
+            <div class="section2--transportation">交通方式：</div>
+            <div class="section2--way"></div>
+        </div>
+    </article>
+    <script src="{{url_for('static', filename='/javascript/navhtml.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/checkLogin.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/attraction.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/showlogin.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/booking.js')}}"></script>
+    <script src="{{url_for('static', filename='/javascript/navbarBooking.js')}}"></script>
+    <footer>
+        <p>COPYRIGHT © 2021 台北一日遊</p>
+    </footer>
+</body>
+</html>

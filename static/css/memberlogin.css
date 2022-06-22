@@ -1,0 +1,108 @@
+/* 跳窗 */
+.member {
+  /* position: fixed; */
+  width: 340px;
+  height: 332px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  transform: translate(-170px, 0px);
+  top: 80px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: none;
+  z-index: 20;
+}
+.member--colorbar {
+  width: 340px;
+  height: 10px;
+  background: linear-gradient(270deg, #337788 0%, #66aabb 100%);
+  border-radius: 5px 5px 0px 0px;
+  z-index: 2;
+}
+.member--close {
+  position: absolute;
+  right: 17px;
+  top: 27px;
+  cursor: pointer;
+}
+.member--title {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #666666;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.member--email,
+.member--password {
+  margin-top: 10px;
+  padding: 15px;
+  font-size: 16px;
+  width: 310px;
+  height: 47px;
+  color: #666666;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+.member--name {
+  margin-top: 15px;
+  padding: 15px;
+  font-size: 16px;
+  width: 310px;
+  color: #666666;
+  height: 47px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+.member--button {
+  margin-top: 10px;
+  width: 310px;
+  height: 47px;
+  background: #448899;
+  border: 0 none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.member--signup {
+  margin-top: 10px;
+  width: 310px;
+  height: 22px;
+  font-size: 16px;
+  text-align: center;
+  color: #666666;
+  cursor: pointer;
+}
+.member--signup:hover {
+  color: #448899;
+}
+
+.member--signin:hover {
+  color: #448899;
+}
+.member--signin {
+  margin-top: 10px;
+  width: 310px;
+  height: 22px;
+  font-size: 16px;
+  text-align: center;
+  color: #666666;
+  cursor: pointer;
+}
+.member--signinStatus {
+  display: none;
+  margin-top: 10px;
+  width: 310px;
+  height: 22px;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #666666;
+}
