@@ -48,10 +48,6 @@ Test payment information:
 - Use Git/GitHub for version control
 - Third-Party Payment System: TapPay
 
-## API Doc
-
-- [API doc](https://app.swaggerhub.com/apis-docs/padax/taipei-trip/1.0.0)
-
 ## Contact
 
 💻 Yin Chun Chuang
